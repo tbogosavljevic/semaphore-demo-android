@@ -23,7 +23,9 @@ blocks:
       jobs:
         - name: Build Project
           commands:
-            - ./gradlew bundleDebug
+            - sem-service start postgres 11
+            - psql -U postgres -h localhost -c "CREATE USER semaphore WITH PASSWORD 'semaphore';"
+            - psql -U postgres -h localhost -c "ALTER USER semaphore WITH SUPERUSER;"
       epilogue:
         on_pass:
           commands:
@@ -31,6 +33,10 @@ blocks:
             - cache store gradle-wrapper ~/.gradle/wrapper
             - cache store gradle-cache ~/.gradle/caches
             - cache store android-build ~/.android/build-cache
+      agent:
+        machine:
+          type: e2-standard-2
+          os_image: ubuntu2404
   - name: Verification
     task:
       jobs:
