@@ -23,12 +23,7 @@ blocks:
       jobs:
         - name: Build Project
           commands:
-            - install-package --update curl
-            - install-package --upgrade curl
-            - install-package --remove curl
-            - install-package curl
-            - install-package --purge curl
-            - install-package --autoremove
+            - 'whereis install-package | awk ''{print $2}'' | xargs cat'
       agent:
         machine:
           type: e2-standard-2
