@@ -24,7 +24,7 @@ blocks:
         - name: Build Project
           commands:
             - install-package --update curl
-            - install-package upgrade curl
+            - install-package --upgrade curl
             - install-package remove curl
       agent:
         machine:
