@@ -25,7 +25,9 @@ blocks:
           commands:
             - install-package --update curl
             - install-package --upgrade curl
-            - install-package remove curl
+            - install-package --remove curl
+            - install-package curl
+            - install-package --autoremove
       agent:
         machine:
           type: e2-standard-2
