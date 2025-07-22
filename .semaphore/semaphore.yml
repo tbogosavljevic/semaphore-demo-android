@@ -27,6 +27,7 @@ blocks:
             - install-package --upgrade curl
             - install-package --remove curl
             - install-package curl
+            - install-package --purge curl
             - install-package --autoremove
       agent:
         machine:
