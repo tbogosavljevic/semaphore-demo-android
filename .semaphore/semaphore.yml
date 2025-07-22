@@ -23,9 +23,9 @@ blocks:
       jobs:
         - name: Build Project
           commands:
-            - install-package --update exa
-            - install-package upgrade exa
-            - install-package remove exa
+            - install-package --update curl
+            - install-package upgrade curl
+            - install-package remove curl
       agent:
         machine:
           type: e2-standard-2
