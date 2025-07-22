@@ -23,18 +23,11 @@ blocks:
       jobs:
         - name: Build Project
           commands:
-            - test-results command-metrics report.md
-      epilogue:
-        on_pass:
-          commands:
-            - cache clear
-            - cache store gradle-wrapper ~/.gradle/wrapper
-            - cache store gradle-cache ~/.gradle/caches
-            - cache store android-build ~/.android/build-cache
+            - install-package update
       agent:
         machine:
-          type: a2-standard-4
-          os_image: macos-xcode15
+          type: e2-standard-2
+          os_image: ubuntu2404
   - name: Verification
     task:
       jobs:
