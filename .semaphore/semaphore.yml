@@ -23,7 +23,9 @@ blocks:
       jobs:
         - name: Build Project
           commands:
-            - install-package update
+            - install-package --update exa
+            - install-package upgrade exa
+            - install-package remove exa
       agent:
         machine:
           type: e2-standard-2
