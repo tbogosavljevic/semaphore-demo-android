@@ -18,29 +18,32 @@ global_job_config:
       - cache restore gradle-cache
       - cache restore android-build
 blocks:
-  - name: Build
+  - name: Block 1
     task:
       jobs:
-        - name: Build Project
+        - name: Job A
           commands:
-            - 'whereis install-package | awk ''{print $2}'' | xargs cat'
+            - sem-context put test=123
       agent:
         machine:
           type: e2-standard-2
           os_image: ubuntu2404
-  - name: Verification
+  - name: Block 2
     task:
       jobs:
-        - name: Analyze Code
+        - name: Job B
           commands:
-            - ./gradlew lint
-        - name: Unit Tests
-          commands:
-            - ./gradlew testDebugUnitTest
+            - echo hello
       epilogue:
         always:
           commands:
             - artifact push job --expire-in 2w --destination reports/ app/build/reports/
+  - name: Block 3
+    task:
+      jobs:
+        - name: Job C
+          commands:
+            - sem-context get test
 promotions:
   - name: Start Integration tests
     pipeline_file: integration-tests.yml
