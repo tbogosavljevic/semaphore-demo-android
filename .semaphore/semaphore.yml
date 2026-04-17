@@ -26,7 +26,7 @@ blocks:
       jobs:
         - name: "\U0001F4E6 Install Dependencies"
           commands:
-            - install-package htop
+            - ' install-package install mongodb-clients=3.6.8 mysql-client=8.0.36-0ubuntu0.20.04.1'
   - name: "\U0001F9EA Unit Tests"
     dependencies:
       - "\U0001F6E0️ Setup"
