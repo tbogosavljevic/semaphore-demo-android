@@ -26,7 +26,7 @@ blocks:
       jobs:
         - name: "\U0001F4E6 Install Dependencies"
           commands:
-            - install-packag htop
+            - install-package htop
   - name: "\U0001F9EA Unit Tests"
     dependencies:
       - "\U0001F6E0️ Setup"
