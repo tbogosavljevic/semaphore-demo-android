@@ -34,7 +34,7 @@ blocks:
       jobs:
         - name: "\U0001F7E2 Run Unit Tests"
           commands:
-            - install-package htop
+            - install-package install
   - name: "\U0001F50D Integration Tests"
     dependencies:
       - "\U0001F6E0️ Setup"
